@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-<!-- /////////////////////////// -->
+  
 
     <script id="template1" type="text/x-handlebars">
         <h2>{{name}}</h2>
@@ -31,15 +31,41 @@
           <a href ="{{link}}">{{link}}</a>
         {{else}}
           none
-        {{/if}}
+        {{/if}} 
 
       
       </script>
     
-<!-- ////////////////////////// -->
     <div id="template1area"></div>
 
+    <script>
+      let template1 = document.querySelector("#template1").innerHTML;
+
+let template1Func = Handlebars.compile(template1);
+
+
+
+
+
+let temp1obj1 = {
+    name: "Vahid's Blog",
+    category: "Technical blog",
+    link: "https://vahid.blog",
+    miscellaneous:
+      `This part here can incorporate HTML tags
+      like <strong>strong</strong> and <em>em</em>
+      because the template displays it using triple curlies.`,
+  };
+
+  
+
+  let temp1FromObj1 = template1Func(temp1obj1);
+  
+
+  document.querySelector("#template1area").innerHTML = temp1FromObj1;
+
+    </script>
+
     
-    <script src="js/myHandlebars.js"></script>
 </body>
 </html>
